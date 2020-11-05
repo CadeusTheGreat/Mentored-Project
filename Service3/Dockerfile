@@ -4,11 +4,11 @@ RUN apt update
 
 RUN apt install python3 python3-pip python3-venv -y
 
-RUN mkdir /opt/service-3
+RUN mkdir /opt/Service3
 
-COPY . /opt/service-3
+COPY . /opt/Service3
 
-WORKDIR /opt/service-3
+WORKDIR /opt/Service3
 
 RUN pip3 install -r requirements.txt
 
