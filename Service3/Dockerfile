@@ -1,14 +1,15 @@
-FROM python:3.6
+FROM python:3.8
 
-RUN apt update && apt install python3-pip -y
+RUN apt update
 
-WORKDIR /usr/src/app
+RUN apt install python3 python3-pip python3-venv -y
 
-COPY requirements.txt /usr/src/app/
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN mkdir /opt/service-3
 
-COPY . /usr/src/app
+COPY . /opt/service-3
 
-EXPOSE 5002
+WORKDIR /opt/service-3
+
+RUN pip3 install -r requirements.txt
 
 ENTRYPOINT ["python3", "app.py"]
