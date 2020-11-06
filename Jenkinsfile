@@ -1,15 +1,8 @@
 pipeline {
-  agent { docker { image 'python:3.8' } }
-  stages {
-    stage('build') {
+  agent any
+  stage('build') {
       steps {
-        sh 'pip install -r Service1/requirements.txt'
+          sh 'python Service1/tests/test_unit.py'
       }
-    }
-    stage('test') {
-      steps {
-        sh 'python Service1/tests/test_unit.py'
-      }   
-    }
   }
 }
