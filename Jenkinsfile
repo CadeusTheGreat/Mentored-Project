@@ -1,14 +1,9 @@
 pipeline {
-    agent none 
+    agent { docker { image 'python:3.8' } }
     stages {
-        stage('Build') { 
-            agent {
-                docker {
-                    image 'python:3.8' 
-                }
-            }
+        stage('build') {
             steps {
-                sh 'python -m Service1/tests/test_unit.py' 
+                sh 'python --version'
             }
         }
     }
