@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'python Service1/tests/test_unit.py'
             }
         }
         stage('Deploy') {
