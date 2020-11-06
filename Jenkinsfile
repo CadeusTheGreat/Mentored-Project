@@ -1,24 +1,14 @@
 pipeline {
-    agent none
-
+    agent none 
     stages {
-        stage('Build') {
-            steps {
-                agent {
-                    docker {
-                        image 'python:3.8'
-                    }
+        stage('Build') { 
+            agent {
+                docker {
+                    image 'python:2-alpine' 
                 }
             }
-        }
-        stage('Test') {
             steps {
-                sh 'python Service1/tests/test_unit.py'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'python -m Service1/tests/test_unit.py' 
             }
         }
     }
