@@ -1,2 +1,1 @@
 # Mentored-Project
-## Hello world!
