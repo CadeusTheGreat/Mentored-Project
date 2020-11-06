@@ -4,7 +4,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                agent {
+                    docker {
+                        image 'python:3.8'
+                    }
+                }
             }
         }
         stage('Test') {
