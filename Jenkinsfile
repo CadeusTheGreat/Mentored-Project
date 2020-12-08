@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('build') {
             steps {
-                sh 'ansible-playbook -i '[192.168.1.100],' playbook.yaml'
+                sh 'ansible-playbook -i '[localhost],' playbook.yaml'
             }
         }
     }
