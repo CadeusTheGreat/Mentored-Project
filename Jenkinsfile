@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('build') {
             steps {
-                sh 'ansible-playbook -i '[localhost],' playbook.yaml'
+                ansible-playbook -i '[localhost],' playbook.yaml
             }
         }
     }
