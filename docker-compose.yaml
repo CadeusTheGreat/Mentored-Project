@@ -1,32 +1,32 @@
 version: "3.8"
 services:
-  service1:
+  Service1:
     build:
-      context: /home/student/MentoredProject/Service-1/
+      context: /home/student/MentoredProject/Service1/
       dockerfile: dockerfile
     ports:
     - target: 5000
       published: 5000
       protocol: tcp
-  service2:
+  Service2:
     build:
-      context: /home/student/MentoredProject/Service-2/
+      context: /home/student/MentoredProject/Service2/
       dockerfile: dockerfile
     ports:
     - target: 5001
       published: 5001
       protocol: tcp
-  service3:
+  Service3:
     build:
-      context: /home/student/MentoredProject/Service-3/
+      context: /home/student/MentoredProject/Service3/
       dockerfile: dockerfile
     ports:
     - target: 5002
       published: 5002
       protocol: tcp
-  service4:
+  Service4:
     build:
-      context: /home/student/MentoredProject/Service-4/
+      context: /home/student/MentoredProject/Service4/
       dockerfile: dockerfile
     ports:
     - target: 5003
