@@ -3,32 +3,32 @@ pipeline {
 	stages {
 		stage("Install Docker & Docker-Compose With Ansible"){
 			steps {
-				sh "./scripts/ansible.sh"
+				sh "./Scripts/ansible.sh"
 			}
 		}
 		stage("Sonarcube SAST Test"){
 			steps {
-				sh "./scripts/sonarcube.sh"
+				sh "./Scripts/sonarcube.sh"
 			}
 		}
 		stage("pytest & pytest-cov Unit Tests"){
 			steps {
-				sh "./scripts/pytest.sh"
+				sh "./Scripts/pytest.sh"
 			}
 		}
 		stage("Docker-compose Images"){
 			steps{
-				sh "./scripts/build.sh"
+				sh "./Scripts/build.sh"
 			}
 		}
 		stage("NImages Tagged & Push to Nexus Repo @ Port 8082"){		
 			steps{		
-				sh "./scripts/push.sh"
+				sh "./Scripts/push.sh"
 			}
 		}
 		stage("Run"){
 			steps{
-				sh "./scripts/run.sh"
+				sh "./Scripts/run.sh"
 			}
 		}
 	}
