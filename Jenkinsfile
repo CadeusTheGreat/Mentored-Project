@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('build') {
             steps {
-                sh 'python3 -m venv venv'
+                sh 'python -m venv venv'
                 sh '. venv/bin/activate'
                 sh 'sudo rm -rf /opt/Service1'
                 sh 'sudo mkdir /opt/Service1'
