@@ -3,8 +3,7 @@ pipeline {
     stages{
         stage('build') {
             steps {
-                sh ''
-                //sh 'python Service1/tests/test_unit.py'
+                sh 'python Service1/tests/test_unit.py'
             }
         }
     }
