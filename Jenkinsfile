@@ -1,32 +1,32 @@
 pipeline {
 	agent any
 	stages {
-		stage("Install Docker and Docker-Compose with Ansible"){
+		stage("Install Docker & Docker-Compose With Ansible"){
 			steps {
 				sh "./scripts/ansible.sh"
 			}
 		}
-		stage("SAST testing using Sonarcube"){
+		stage("Sonarcube SAST Test"){
 			steps {
 				sh "./scripts/sonarcube.sh"
 			}
 		}
-		stage("Unit tests using pytest & pytest-cov"){
+		stage("pytest & pytest-cov Unit Tests"){
 			steps {
 				sh "./scripts/pytest.sh"
 			}
 		}
-		stage("Docker-compose images"){
+		stage("Docker-compose Images"){
 			steps{
 				sh "./scripts/build.sh"
 			}
 		}
-		stage("Images taggged & pushed to Nexus Repo at port 8082"){		
+		stage("NImages Tagged & Push to Nexus Repo @ Port 8082"){		
 			steps{		
 				sh "./scripts/push.sh"
 			}
 		}
-		stage("Run latest build"){
+		stage("Run"){
 			steps{
 				sh "./scripts/run.sh"
 			}
