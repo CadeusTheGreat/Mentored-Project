@@ -1,5 +1,37 @@
-- hosts: all
+- hosts: localhost
   become: true
   tasks:
-    - name: Update apt
-      apt: update_cache=yes
+  - name: Install Dependencies
+    apt:
+      name: apt-transport-https
+      state: latest
+      update_cache: yes
+    apt:
+      name: ca-certificates
+      state: latest
+      update_cache: yes
+    apt:
+      name: curl
+      state: latest
+      update_cache: yes
+    apt:
+      name: software-properties-common
+      state: latest
+      update_cache: yes
+  - name: Get Repository Key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+  - name: Docker Registry
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+      state: present
+  - name: Install Docker
+    apt:
+      name: docker-ce
+      state: present
+      update_cache: yes
+  - name: Start Docker
+    service:
+      name: docker
+      state: restarted
